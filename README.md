@@ -39,7 +39,7 @@ npm -v
 
 1. Clona el repositorio:
 ```bash
-git clone <tu-repositorio>
+git clone https://github.com/briyith05/rethread_ACA.git
 cd rethread_sitio_web
 ```
 
