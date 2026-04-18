@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReThread — Filamento Reciclado Colombiano</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .hero-main {
+      margin-top: 72px;
+      min-height: calc(100vh - 72px);
+      background: var(--verde-oscuro);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 3rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 70%;
+      height: 140%;
+      background: radial-gradient(ellipse at center, rgba(29,158,117,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-main::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(157,225,203,0.3), transparent);
+    }
+
+    .hero-text { position: relative; z-index: 2; }
+
+    .hero-text .eyebrow {
+      display: inline-block;
+      background: var(--acento);
+      color: var(--verde-oscuro);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      color: var(--blanco-roto);
+      line-height: 1.03;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text h1 .highlight {
+      color: var(--verde-claro);
+      display: block;
+    }
+
+    .hero-text p {
+      color: rgba(245,242,235,0.65);
+      font-size: 1.1rem;
+      line-height: 1.75;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* VISUAL LADO DERECHO */
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spool-wrap {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .spool-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid var(--verde-vivo);
+      animation: spin 20s linear infinite;
+    }
+
+    .spool-ring:nth-child(1) {
+      inset: 0;
+      opacity: 0.4;
+      border-style: dashed;
+      animation-direction: reverse;
+    }
+
+    .spool-ring:nth-child(2) {
+      inset: 20px;
+      opacity: 0.7;
+      border-color: var(--verde-claro);
+    }
+
+    .spool-ring:nth-child(3) {
+      inset: 50px;
+      border-color: var(--acento);
+      opacity: 0.5;
+      animation-duration: 12s;
+    }
+
+    .spool-center {
+      position: absolute;
+      inset: 80px;
+      background: rgba(29,158,117,0.1);
+      border-radius: 50%;
+      border: 2px solid var(--verde-vivo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .spool-center span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--blanco-roto);
+      line-height: 1;
+    }
+
+    .spool-center small {
+      font-size: 0.65rem;
+      color: var(--verde-claro);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* FEATURES STRIP */
+    .features-strip {
+      background: white;
+      padding: 4rem 3rem;
+    }
+
+    .features-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .features-inner > p {
+      text-align: center;
+      color: var(--gris-muted);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: var(--verde-vivo);
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .cta-banner p {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--verde-oscuro);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: var(--blanco-roto);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .hero-main { grid-template-columns: 1fr; padding: 3rem 1.5rem; min-height: auto; padding-top: 4rem; }
+      .hero-visual { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Re<span>Thread</span></a>
+  <ul>
+    <li><a href="index.html" class="active">Inicio</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="productos.html">Productos</a></li>
+    <li><a href="proceso.html">Proceso</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <div class="hero-main">
+    <div class="hero-text fade-up">
+      <span class="eyebrow">🌱 Hecho en Colombia</span>
+      <h1>
+        Filamento 3D
+        <span class="highlight">que nació botella</span>
+      </h1>
+      <p>Transformamos plástico PET reciclado en filamento de alta calidad para impresoras 3D. Imprime con propósito, imprime con ReThread.</p>
+      <div class="hero-btns">
+        <a href="productos.html" class="btn btn-primary">Ver productos</a>
+        <a href="nosotros.html" class="btn btn-outline">Conoce la historia</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up delay-2">
+      <div class="spool-wrap">
+        <div class="spool-ring"></div>
+        <div class="spool-ring"></div>
+        <div class="spool-ring"></div>
+        <div class="spool-center">
+          <span>Re</span>
+          <span>Thread</span>
+          <small>PET Recycle</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="features-strip">
+    <div class="features-inner">
+      <p>¿Por qué ReThread?</p>
+      <div class="stats">
+        <div class="stat fade-up delay-1">
+          <div class="stat-num">25</div>
+          <div class="stat-label">botellas por kg de filamento</div>
+        </div>
+        <div class="stat fade-up delay-2">
+          <div class="stat-num">40%</div>
+          <div class="stat-label">más económico que el importado</div>
+        </div>
+        <div class="stat fade-up delay-3">
+          <div class="stat-num">1.75mm</div>
+          <div class="stat-label">diámetro estándar garantizado</div>
+        </div>
+        <div class="stat fade-up delay-4">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">plástico colombiano reciclado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <section>
+    <div class="section-label">Nuestros pilares</div>
+    <h2 class="section-title">Innovar, reciclar,<br>imprimir.</h2>
+    <div class="cards-grid">
+      <div class="card fade-up delay-1">
+        <div class="card-icon">♻️</div>
+        <h3>Economía circular</h3>
+        <p>Cada carrete de ReThread recupera plástico que de otro modo terminaría en un relleno sanitario o un río colombiano.</p>
+      </div>
+      <div class="card fade-up delay-2">
+        <div class="card-icon">🏭</div>
+        <h3>Producción local</h3>
+        <p>Fabricamos en Bogotá, lo que reduce la huella de carbono del transporte y apoya la economía nacional.</p>
+      </div>
+      <div class="card fade-up delay-3">
+        <div class="card-icon">🎯</div>
+        <h3>Calidad garantizada</h3>
+        <p>Controlamos el diámetro con calibrador digital lote a lote para garantizar impresiones sin atascos ni fallas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2>¿Listo para imprimir con propósito?</h2>
+    <p>Únete a la comunidad de makers colombianos que ya eligieron ReThread.</p>
+    <a href="contacto.html" class="btn btn-white">Pedir una muestra gratis</a>
+  </div>
+</main>
+
+<footer>
+  <span class="footer-logo">Re<span>Thread</span></span>
+  <p>Plástico que vuelve a vivir — Bogotá, Colombia · 2025</p>
+  <p style="margin-top:0.5rem">
+    <a href="index.html">Inicio</a> &nbsp;·&nbsp;
+    <a href="nosotros.html">Nosotros</a> &nbsp;·&nbsp;
+    <a href="productos.html">Productos</a> &nbsp;·&nbsp;
+    <a href="proceso.html">Proceso</a> &nbsp;·&nbsp;
+    <a href="contacto.html">Contacto</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestro Proceso — ReThread</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .process-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 4rem auto 0;
+    }
+
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 40px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--verde-vivo), var(--acento));
+    }
+
+    .timeline-step {
+      display: flex;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .timeline-step:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-step:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-step:nth-child(3) { animation-delay: 0.3s; }
+    .timeline-step:nth-child(4) { animation-delay: 0.4s; }
+    .timeline-step:nth-child(5) { animation-delay: 0.5s; }
+
+    .step-dot {
+      width: 80px;
+      min-width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--verde-oscuro);
+      border: 3px solid var(--verde-vivo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s;
+    }
+
+    .timeline-step:hover .step-dot {
+      transform: scale(1.1);
+      border-color: var(--acento);
+    }
+
+    .step-content {
+      background: white;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      flex: 1;
+      border: 1px solid rgba(29,158,117,0.12);
+      transition: box-shadow 0.3s;
+    }
+
+    .timeline-step:hover .step-content {
+      box-shadow: 0 12px 32px rgba(10,46,26,0.1);
+    }
+
+    .step-num {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--verde-vivo);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--verde-oscuro);
+      margin-bottom: 0.6rem;
+    }
+
+    .step-content p {
+      font-size: 0.92rem;
+      color: var(--gris-muted);
+      line-height: 1.7;
+    }
+
+    .step-detail {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--verde-menta);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .detail-tag {
+      background: var(--verde-menta);
+      color: var(--verde-medio);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+    }
+
+    /* INFOGRAFÍA */
+    .infographic {
+      background: var(--verde-oscuro);
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+
+    .infographic-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .impact-card {
+      background: rgba(29,158,117,0.1);
+      border: 1px solid rgba(157,225,203,0.2);
+      border-radius: 20px;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .impact-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .impact-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--acento);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .impact-desc {
+      font-size: 0.88rem;
+      color: rgba(245,242,235,0.65);
+      line-height: 1.6;
+    }
+
+    .materials-section {
+      padding: 5rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .process-timeline::before { left: 28px; }
+      .step-dot { width: 56px; min-width: 56px; height: 56px; font-size: 1.3rem; }
+      .impact-grid { grid-template-columns: 1fr; }
+      .infographic { padding: 3rem 1.5rem; }
+      .materials-section { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Re<span>Thread</span></a>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="productos.html">Productos</a></li>
+    <li><a href="proceso.html" class="active">Proceso</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="section-label fade-up" style="color:var(--verde-claro);">De la botella al carrete</p>
+  <h1 class="fade-up delay-1">El <em>proceso</em> que<br>lo hace posible</h1>
+  <p class="fade-up delay-2">Cinco etapas, cero magia. Solo ciencia, esfuerzo y compromiso ambiental.</p>
+</div>
+
+<section>
+  <div class="section-label">Paso a paso</div>
+  <h2 class="section-title">Cómo transformamos<br>plástico en filamento</h2>
+
+  <div class="process-timeline">
+
+    <div class="timeline-step">
+      <div class="step-dot">🔍</div>
+      <div class="step-content">
+        <div class="step-num">Etapa 01</div>
+        <h3>Recolección y selección</h3>
+        <p>Recolectamos botellas PET de puntos de reciclaje del vecindario, empresas aliadas y centros de acopio. Seleccionamos únicamente botellas transparentes o de color claro, descartando aquellas con contaminantes difíciles de remover (aceites, pinturas).</p>
+        <div class="step-detail">
+          <span class="detail-tag">PET Tipo 1</span>
+          <span class="detail-tag">Sin tapa</span>
+          <span class="detail-tag">Sin etiqueta</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <div class="step-dot">🫧</div>
+      <div class="step-content">
+        <div class="step-num">Etapa 02</div>
+        <h3>Lavado y secado</h3>
+        <p>Las botellas se lavan con agua caliente y jabón biodegradable para eliminar restos de bebidas, etiquetas y adhesivos. Luego se secan completamente — la humedad residual es el principal enemigo de la calidad del filamento.</p>
+        <div class="step-detail">
+          <span class="detail-tag">Agua caliente 60°C</span>
+          <span class="detail-tag">Secado 24h</span>
+          <span class="detail-tag">Sin humedad residual</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <div class="step-dot">⚙️</div>
+      <div class="step-content">
+        <div class="step-num">Etapa 03</div>
+        <h3>Trituración</h3>
+        <p>Las botellas secas pasan por una trituradora que las convierte en fragmentos pequeños (flakes) de 2 a 5 mm. El tamaño uniforme de los flakes es clave para garantizar una fusión homogénea en la etapa de extrusión.</p>
+        <div class="step-detail">
+          <span class="detail-tag">Flakes 2–5 mm</span>
+          <span class="detail-tag">Trituradora eléctrica</span>
+          <span class="detail-tag">Granulometría uniforme</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <div class="step-dot">🔥</div>
+      <div class="step-content">
+        <div class="step-num">Etapa 04</div>
+        <h3>Extrusión del filamento</h3>
+        <p>Los flakes se introducen en la extrusora, que los calienta a 255°C y los empuja a través de una boquilla de precisión para conformar el filamento. La velocidad de extrusión y la temperatura se controlan para mantener el diámetro objetivo de 1.75 mm.</p>
+        <div class="step-detail">
+          <span class="detail-tag">255°C de extrusión</span>
+          <span class="detail-tag">Diámetro 1.75 mm</span>
+          <span class="detail-tag">Control de velocidad</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <div class="step-dot">📏</div>
+      <div class="step-content">
+        <div class="step-num">Etapa 05</div>
+        <h3>Control de calidad y embobinado</h3>
+        <p>El filamento se enfría en un baño de agua y luego se mide con calibrador digital cada 30 cm para verificar que el diámetro esté dentro de la tolerancia ±0.05 mm. Los tramos que no cumplen se descartan. El filamento aprobado se enrolla en carretes de 1 kg.</p>
+        <div class="step-detail">
+          <span class="detail-tag">Calibrador digital</span>
+          <span class="detail-tag">±0.05 mm tolerancia</span>
+          <span class="detail-tag">1 kg por carrete</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPACTO -->
+<div class="infographic">
+  <div class="infographic-inner">
+    <div class="section-label" style="color:var(--verde-claro);">Impacto medible</div>
+    <h2 class="section-title" style="color:var(--blanco-roto);">Cada carrete cuenta</h2>
+    <div class="impact-grid">
+      <div class="impact-card fade-up delay-1">
+        <span class="impact-icon">🍶</span>
+        <div class="impact-num">25</div>
+        <div class="impact-desc">botellas de 500 ml rescatadas por cada kilogramo de filamento producido</div>
+      </div>
+      <div class="impact-card fade-up delay-2">
+        <span class="impact-icon">🌊</span>
+        <div class="impact-num">0</div>
+        <div class="impact-desc">botellas al río. Todo el plástico procesado viene de circuitos de reciclaje controlados</div>
+      </div>
+      <div class="impact-card fade-up delay-3">
+        <span class="impact-icon">♻️</span>
+        <div class="impact-num">15K</div>
+        <div class="impact-desc">botellas al año que ReThread planea recuperar en su fase de madurez (50 kg/mes)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">Re<span>Thread</span></span>
+  <p>Plástico que vuelve a vivir — Bogotá, Colombia · 2025</p>
+  <p style="margin-top:0.5rem">
+    <a href="index.html">Inicio</a> &nbsp;·&nbsp;
+    <a href="nosotros.html">Nosotros</a> &nbsp;·&nbsp;
+    <a href="productos.html">Productos</a> &nbsp;·&nbsp;
+    <a href="proceso.html">Proceso</a> &nbsp;·&nbsp;
+    <a href="contacto.html">Contacto</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros — ReThread</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--gris-texto);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-visual {
+      background: var(--verde-oscuro);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .value-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .value-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 10px;
+      background: rgba(157,225,203,0.12);
+      border: 1px solid rgba(157,225,203,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .value-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blanco-roto);
+      margin-bottom: 0.3rem;
+    }
+
+    .value-item p {
+      font-size: 0.85rem;
+      color: rgba(245,242,235,0.6);
+      line-height: 1.55;
+    }
+
+    .mission-box {
+      background: var(--verde-menta);
+      border-left: 4px solid var(--verde-vivo);
+      border-radius: 0 16px 16px 0;
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+    }
+
+    .mission-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--verde-oscuro);
+      margin-bottom: 0.7rem;
+    }
+
+    .mission-box p {
+      font-size: 0.95rem;
+      color: var(--gris-texto);
+      line-height: 1.7;
+    }
+
+    .team-section {
+      background: var(--verde-oscuro);
+      padding: 5rem 3rem;
+    }
+
+    .team-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      background: rgba(29,158,117,0.08);
+      border: 1px solid rgba(157,225,203,0.2);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--verde-vivo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: white;
+      margin: 0 auto 1rem;
+      border: 2px solid var(--verde-claro);
+    }
+
+    .team-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blanco-roto);
+      margin-bottom: 0.3rem;
+    }
+
+    .team-card p {
+      font-size: 0.8rem;
+      color: var(--verde-claro);
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .about-split { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; }
+      .team-section { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Re<span>Thread</span></a>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="nosotros.html" class="active">Nosotros</a></li>
+    <li><a href="productos.html">Productos</a></li>
+    <li><a href="proceso.html">Proceso</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero" style="margin-top:72px;">
+  <p class="section-label fade-up" style="color:var(--verde-claro);">Nuestra historia</p>
+  <h1 class="fade-up delay-1">Nacimos del <em>problema</em><br>para ser la solución</h1>
+  <p class="fade-up delay-2">ReThread es un emprendimiento bogotano que convierte botellas plásticas en filamento para impresoras 3D, uniendo tecnología, sostenibilidad y orgullo colombiano.</p>
+</div>
+
+<div class="about-split">
+  <div class="about-text fade-up">
+    <span class="badge">Nuestra historia</span>
+    <h2 class="section-title">De la basura<br>al carrete</h2>
+    <p>ReThread nació de una pregunta simple: ¿por qué seguimos tirando botellas plásticas a la basura cuando podríamos convertirlas en algo útil?</p>
+    <p>La respuesta fue este emprendimiento: una microempresa domiciliaria en Bogotá que toma botellas PET posconsumo, las procesa y las transforma en filamento de calidad para impresoras 3D.</p>
+    <p>Con una inversión inicial accesible y un proceso artesanal-tecnológico, demostramos que la economía circular puede nacer desde casa, con impacto real en el medioambiente y en el bolsillo de los makers colombianos.</p>
+
+    <div class="mission-box">
+      <h3>Misión</h3>
+      <p>Producir filamento reciclado de alta calidad que sea accesible para la comunidad maker colombiana, reduciendo residuos plásticos y fomentando la cultura de la economía circular.</p>
+    </div>
+
+    <div class="mission-box" style="border-left-color: var(--acento);">
+      <h3>Visión 2027</h3>
+      <p>Ser la marca líder de filamento reciclado en Colombia, con distribución en Ecuador y Perú, y certificación ambiental que respalde nuestro impacto sostenible.</p>
+    </div>
+  </div>
+
+  <div class="about-visual fade-up delay-2">
+    <div class="value-item">
+      <div class="value-icon">🌿</div>
+      <div>
+        <h4>Sostenibilidad real</h4>
+        <p>Cada kg de filamento es 25 botellas rescatadas. No es marketing, es matemática.</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">🔬</div>
+      <div>
+        <h4>Calidad medida</h4>
+        <p>Controlamos el diámetro lote a lote con calibrador digital. ±0.05mm de tolerancia.</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">🇨🇴</div>
+      <div>
+        <h4>Orgullo colombiano</h4>
+        <p>Producido en Bogotá, con plástico colombiano, por colombianos. Sin intermediarios internacionales.</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">💡</div>
+      <div>
+        <h4>Innovación accesible</h4>
+        <p>Precio hasta 40% menor que el filamento importado, sin sacrificar la calidad de impresión.</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">🤝</div>
+      <div>
+        <h4>Comunidad primero</h4>
+        <p>Trabajamos con colegios, universidades y makers porque creemos en democratizar la fabricación digital.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EQUIPO -->
+<div class="team-section">
+  <div class="team-inner">
+    <div class="section-label" style="color:var(--verde-claro);">Las personas detrás</div>
+    <h2 class="section-title" style="color:var(--blanco-roto);">Nuestro equipo</h2>
+    <div class="team-grid">
+      <div class="team-card fade-up delay-1">
+        <div class="avatar">F</div>
+        <h4>[Tu nombre]</h4>
+        <p>Fundador & Producción</p>
+      </div>
+      <div class="team-card fade-up delay-2">
+        <div class="avatar">I</div>
+        <h4>[Integrante 2]</h4>
+        <p>Comercial & Ventas</p>
+      </div>
+      <div class="team-card fade-up delay-3">
+        <div class="avatar">I</div>
+        <h4>[Integrante 3]</h4>
+        <p>Diseño & Marca</p>
+      </div>
+      <div class="team-card fade-up delay-4">
+        <div class="avatar">I</div>
+        <h4>[Integrante 4]</h4>
+        <p>Control de Calidad</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">Re<span>Thread</span></span>
+  <p>Plástico que vuelve a vivir — Bogotá, Colombia · 2025</p>
+  <p style="margin-top:0.5rem">
+    <a href="index.html">Inicio</a> &nbsp;·&nbsp;
+    <a href="nosotros.html">Nosotros</a> &nbsp;·&nbsp;
+    <a href="productos.html">Productos</a> &nbsp;·&nbsp;
+    <a href="proceso.html">Proceso</a> &nbsp;·&nbsp;
+    <a href="contacto.html">Contacto</a>
+  </p>
+</footer>
+
+</body>
+</html>
