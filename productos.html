@@ -5,134 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Productos — ReThread</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(29,158,117,0.12);
-      transition: transform 0.35s, box-shadow 0.35s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 48px rgba(10,46,26,0.14);
-    }
-
-    .product-img {
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-img.verde { background: linear-gradient(135deg, #0a2e1a 0%, #0f6e56 100%); }
-    .product-img.menta { background: linear-gradient(135deg, #e1f5ee 0%, #9fe1cb 100%); }
-    .product-img.acento { background: linear-gradient(135deg, #1d3a10 0%, #639922 100%); }
-
-    .product-body { padding: 1.8rem; }
-
-    .product-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--verde-vivo);
-      background: var(--verde-menta);
-      padding: 0.25rem 0.7rem;
-      border-radius: 50px;
-      margin-bottom: 0.8rem;
-    }
-
-    .product-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.5rem;
-    }
-
-    .product-body p {
-      font-size: 0.9rem;
-      color: var(--gris-muted);
-      line-height: 1.65;
-      margin-bottom: 1.2rem;
-    }
-
-    .product-specs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .spec-pill {
-      background: var(--blanco-roto);
-      border: 1px solid rgba(29,158,117,0.2);
-      border-radius: 50px;
-      padding: 0.25rem 0.75rem;
-      font-size: 0.78rem;
-      color: var(--gris-texto);
-    }
-
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1.2rem;
-      border-top: 1px solid var(--verde-menta);
-    }
-
-    .price {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--verde-oscuro);
-    }
-
-    .price small {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--gris-muted);
-      display: block;
-      line-height: 1;
-    }
-
-    /* COMPARATIVA */
-    .compare-section {
-      background: var(--verde-oscuro);
-      padding: 5rem 3rem;
-    }
-
-    .compare-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .compare-section th { background: rgba(157,225,203,0.12); color: var(--verde-claro); }
-    .compare-section td { color: rgba(245,242,235,0.8); border-bottom-color: rgba(157,225,203,0.1); }
-    .compare-section tr:nth-child(even) td { background: rgba(29,158,117,0.06); }
-    .compare-section table { background: rgba(255,255,255,0.03); border: 1px solid rgba(157,225,203,0.1); }
-
-    .check { color: var(--verde-claro); font-weight: 700; }
-    .cross { color: #e24b4a; }
-
-    @media (max-width: 768px) {
-      .compare-section { padding: 3rem 1.5rem; }
-    }
-  </style>
 </head>
 <body>
 
@@ -148,7 +20,7 @@
 </nav>
 
 <div class="page-hero">
-  <p class="section-label fade-up" style="color:var(--verde-claro);">Catálogo</p>
+  <p class="section-label fade-up text-verde-claro">Catálogo</p>
   <h1 class="fade-up delay-1">Filamento que <em>impacta</em></h1>
   <p class="fade-up delay-2">Tres líneas de producto diseñadas para makers, estudiantes y empresas que quieren fabricar de forma responsable.</p>
 </div>
@@ -237,8 +109,8 @@
 <!-- COMPARATIVA -->
 <div class="compare-section">
   <div class="compare-inner">
-    <div class="section-label" style="color:var(--verde-claro);">Tabla comparativa</div>
-    <h2 class="section-title" style="color:var(--blanco-roto);">ReThread vs.<br>filamento importado</h2>
+    <div class="section-label text-verde-claro">Tabla comparativa</div>
+    <h2 class="section-title text-blanco-roto">ReThread vs.<br>filamento importado</h2>
     <table>
       <thead>
         <tr>
@@ -291,7 +163,7 @@
 <footer>
   <span class="footer-logo">Re<span>Thread</span></span>
   <p>Plástico que vuelve a vivir — Bogotá, Colombia · 2025</p>
-  <p style="margin-top:0.5rem">
+  <p class="mt-05">
     <a href="index.html">Inicio</a> &nbsp;·&nbsp;
     <a href="nosotros.html">Nosotros</a> &nbsp;·&nbsp;
     <a href="productos.html">Productos</a> &nbsp;·&nbsp;

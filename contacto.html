@@ -5,176 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto — ReThread</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 4rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 5rem 3rem;
-      align-items: start;
-    }
-
-    .contact-info h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--verde-oscuro);
-      margin-bottom: 1rem;
-    }
-
-    .contact-info > p {
-      font-size: 0.95rem;
-      color: var(--gris-muted);
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-item-icon {
-      width: 44px;
-      height: 44px;
-      min-width: 44px;
-      border-radius: 10px;
-      background: var(--verde-menta);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-
-    .contact-item-text h4 {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--verde-vivo);
-      margin-bottom: 0.2rem;
-    }
-
-    .contact-item-text p {
-      font-size: 0.92rem;
-      color: var(--gris-texto);
-      line-height: 1.5;
-    }
-
-    /* FORMULARIO */
-    .contact-form-card {
-      background: white;
-      border-radius: 24px;
-      padding: 2.5rem;
-      border: 1px solid rgba(29,158,117,0.12);
-      box-shadow: 0 8px 32px rgba(10,46,26,0.07);
-    }
-
-    .contact-form-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-form-card > p {
-      font-size: 0.88rem;
-      color: var(--gris-muted);
-      margin-bottom: 2rem;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .success-msg {
-      display: none;
-      background: var(--verde-menta);
-      border: 1.5px solid var(--verde-vivo);
-      border-radius: 12px;
-      padding: 1.2rem 1.5rem;
-      margin-top: 1.5rem;
-      text-align: center;
-    }
-
-    .success-msg h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.3rem;
-    }
-
-    .success-msg p {
-      font-size: 0.85rem;
-      color: var(--verde-medio);
-    }
-
-    /* FAQ */
-    .faq-section {
-      background: var(--verde-oscuro);
-      padding: 5rem 3rem;
-    }
-
-    .faq-inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid rgba(157,225,203,0.15);
-      padding: 1.5rem 0;
-      cursor: pointer;
-    }
-
-    .faq-question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--blanco-roto);
-    }
-
-    .faq-question span {
-      color: var(--verde-claro);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 300;
-      transition: transform 0.3s;
-    }
-
-    .faq-answer {
-      font-size: 0.9rem;
-      color: rgba(245,242,235,0.65);
-      line-height: 1.7;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 200px;
-      padding-top: 1rem;
-    }
-
-    .faq-item.open .faq-question span {
-      transform: rotate(45deg);
-    }
-
-    @media (max-width: 768px) {
-      .contact-layout { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-      .faq-section { padding: 3rem 1.5rem; }
-    }
-  </style>
 </head>
 <body>
 
@@ -190,7 +20,7 @@
 </nav>
 
 <div class="page-hero">
-  <p class="section-label fade-up" style="color:var(--verde-claro);">Hablemos</p>
+  <p class="section-label fade-up text-verde-claro">Hablemos</p>
   <h1 class="fade-up delay-1">¿Listo para imprimir<br><em>con propósito</em>?</h1>
   <p class="fade-up delay-2">Contáctanos para pedir muestras, cotizar al por mayor o simplemente conocer más sobre ReThread.</p>
 </div>
@@ -274,7 +104,7 @@
       <textarea id="mensaje" placeholder="¿En qué te podemos ayudar? ¿Cuántos kg necesitas? ¿Tienes preguntas sobre el proceso?"></textarea>
     </div>
 
-    <button class="btn btn-primary" style="width:100%;" onclick="enviarFormulario()">
+    <button id="enviarBtn" class="btn btn-primary w-100" type="button">
       Enviar mensaje ↗
     </button>
 
@@ -288,30 +118,30 @@
 <!-- FAQ -->
 <div class="faq-section">
   <div class="faq-inner">
-    <div class="section-label" style="color:var(--verde-claro);">Preguntas frecuentes</div>
-    <h2 class="section-title" style="color:var(--blanco-roto);">Resolvemos tus dudas</h2>
+    <div class="section-label text-verde-claro">Preguntas frecuentes</div>
+    <h2 class="section-title text-blanco-roto">Resolvemos tus dudas</h2>
 
-    <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-item">
       <div class="faq-question">¿El filamento reciclado tiene la misma calidad que el virgen? <span>+</span></div>
       <div class="faq-answer">Sí, para la mayoría de aplicaciones. El PET reciclado correctamente procesado tiene propiedades mecánicas muy similares al virgen. La clave está en el control de calidad del diámetro y la eliminación de humedad. Para aplicaciones industriales de alto estrés, recomendamos nuestro PETG-R Pro.</div>
     </div>
 
-    <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-item">
       <div class="faq-question">¿Con qué impresoras es compatible? <span>+</span></div>
       <div class="faq-answer">ReThread es compatible con cualquier impresora FDM del mercado que acepte filamento de 1.75 mm: Creality Ender, Bambu Lab, Prusa, Anycubic, Flashforge, y muchas más. Solo necesitas configurar la temperatura de extrusión entre 250°C y 260°C.</div>
     </div>
 
-    <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-item">
       <div class="faq-question">¿Hacen envíos a ciudades fuera de Bogotá? <span>+</span></div>
       <div class="faq-answer">Sí, enviamos a toda Colombia a través de Coordinadora y Servientrega. El costo de envío varía según el peso y la ciudad de destino. Para pedidos mayores a 5 kg, el envío a ciudades principales es gratuito.</div>
     </div>
 
-    <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-item">
       <div class="faq-question">¿Puedo llevar mis botellas y obtener descuento? <span>+</span></div>
       <div class="faq-answer">¡Por supuesto! Si traes botellas PET limpias a nuestro punto en Bogotá, te damos un descuento del 5% en tu compra de filamento. Es nuestra forma de cerrar el ciclo junto contigo.</div>
     </div>
 
-    <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-item">
       <div class="faq-question">¿Tienen precios especiales para colegios y universidades? <span>+</span></div>
       <div class="faq-answer">Sí. Contamos con el EduPack: 5 carretes de 1 kg a precio especial, con guía didáctica incluida y factura para compras institucionales. Contáctanos para cotizar según tu volumen y necesidades.</div>
     </div>
@@ -321,7 +151,7 @@
 <footer>
   <span class="footer-logo">Re<span>Thread</span></span>
   <p>Plástico que vuelve a vivir — Bogotá, Colombia · 2025</p>
-  <p style="margin-top:0.5rem">
+  <p class="mt-05">
     <a href="index.html">Inicio</a> &nbsp;·&nbsp;
     <a href="nosotros.html">Nosotros</a> &nbsp;·&nbsp;
     <a href="productos.html">Productos</a> &nbsp;·&nbsp;
@@ -330,27 +160,7 @@
   </p>
 </footer>
 
-<script>
-  function enviarFormulario() {
-    const nombre = document.getElementById('nombre').value;
-    const email = document.getElementById('email').value;
-    const mensaje = document.getElementById('mensaje').value;
-    if (!nombre || !email || !mensaje) {
-      alert('Por favor completa los campos requeridos: nombre, correo y mensaje.');
-      return;
-    }
-    document.getElementById('successMsg').style.display = 'block';
-    document.getElementById('nombre').value = '';
-    document.getElementById('apellido').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('mensaje').value = '';
-    document.getElementById('tipo').value = '';
-  }
-
-  function toggleFaq(el) {
-    el.classList.toggle('open');
-  }
-</script>
+<script src="contacto.js"></script>
 
 </body>
 </html>
