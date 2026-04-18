@@ -22,6 +22,19 @@ ReThread es una plataforma web que promociona y comercializa filamento reciclado
 - **Backend**: Node.js con Express.js
 - **Versión**: 1.0.0
 
+## ✅ Recomendación Antes de Instalar
+
+Se recomienda tener **Node.js** instalado (versión 18 o superior) para ejecutar correctamente este proyecto.
+
+Descarga Node.js desde el sitio oficial: [https://nodejs.org/es/download](https://nodejs.org/es/download)
+
+Puedes verificar si ya lo tienes con:
+
+```bash
+node -v
+npm -v
+```
+
 ## 📦 Instalación
 
 1. Clona el repositorio:
