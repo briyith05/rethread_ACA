@@ -63,6 +63,48 @@ npm run dev
 
 El sitio estará disponible en `http://localhost:3000`
 
+## 🔄 Comandos de GitHub (Rama master)
+
+Usa estos comandos desde la carpeta del proyecto:
+
+```bash
+cd C:\xampp\htdocs\rethread\rethread_sitio_web
+```
+
+### 1) Subir cambios al repositorio en la rama master
+
+```bash
+git status
+git checkout master
+git add .
+git commit -m "Tu mensaje de cambios"
+git push origin master
+```
+
+### 2) Descargar lo más reciente de la rama master
+
+```bash
+git checkout master
+git pull origin master
+```
+
+### 3) Clonar el repositorio y quedar en master
+
+```bash
+git clone https://github.com/briyith05/rethread_ACA.git
+cd rethread_ACA
+git checkout master
+```
+
+### 4) Verificar rama actual y remotos configurados
+
+```bash
+git branch --show-current
+git remote -v
+```
+
+Nota: Si tu repositorio usa main en lugar de master, reemplaza master por main en los comandos anteriores.
+
 ## 📁 Estructura del Proyecto
 
 ```

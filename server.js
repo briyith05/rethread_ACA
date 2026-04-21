@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
+const http = require('http');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const START_PORT = Number(process.env.PORT) || 3000;
+const MAX_PORT = START_PORT + 20;
 
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname)));
@@ -32,7 +34,23 @@ app.get('/contacto', (req, res) => {
   res.sendFile(path.join(__dirname, 'contacto.html'));
 });
 
+function startServer(port) {
+  const server = http.createServer(app);
+
+  server.on('error', (error) => {
+    if (error.code === 'EADDRINUSE' && port < MAX_PORT) {
+      startServer(port + 1);
+      return;
+    }
+
+    console.error('No se pudo iniciar el servidor:', error.message);
+    process.exit(1);
+  });
+
+  server.listen(port, () => {
+    console.log(`🚀 Servidor ReThread ejecutándose en http://localhost:${port}`);
+  });
+}
+
 // Iniciar servidor
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor ReThread ejecutándose en http://localhost:${PORT}`);
-});
+startServer(START_PORT);
