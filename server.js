@@ -3,13 +3,15 @@ const path = require('path');
 const http = require('http');
 
 const app = express();
+// Puerto inicial configurable por variable de entorno.
 const START_PORT = Number(process.env.PORT) || 3000;
+// Si el puerto esta ocupado, intentamos automaticamente los siguientes 20.
 const MAX_PORT = START_PORT + 20;
 
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname)));
 
-// Rutas para las páginas
+// Rutas explicitas para cada vista principal.
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -34,11 +36,13 @@ app.get('/contacto', (req, res) => {
   res.sendFile(path.join(__dirname, 'contacto.html'));
 });
 
+// Crea el servidor HTTP y maneja colisiones de puerto.
 function startServer(port) {
   const server = http.createServer(app);
 
   server.on('error', (error) => {
     if (error.code === 'EADDRINUSE' && port < MAX_PORT) {
+      // Reintento automatico en el siguiente puerto disponible.
       startServer(port + 1);
       return;
     }
@@ -52,5 +56,5 @@ function startServer(port) {
   });
 }
 
-// Iniciar servidor
+// Punto de entrada del servidor.
 startServer(START_PORT);

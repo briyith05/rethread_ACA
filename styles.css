@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap');
 
+/* Hoja global: variables, layout compartido y secciones por pagina. */
 :root {
   --verde-oscuro: #0a2e1a;
   --verde-medio: #0f6e56;
@@ -355,7 +356,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   position: relative;
 }
 
-.step-num {
+.steps .step-num {
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -647,6 +648,13 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+}
+
+.value-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .value-item h4 {

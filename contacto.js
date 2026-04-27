@@ -1,3 +1,4 @@
+// Inicializa los eventos cuando el DOM esta listo para interactuar.
 document.addEventListener('DOMContentLoaded', () => {
   const enviarBtn = document.getElementById('enviarBtn');
   const faqItems = document.querySelectorAll('.faq-item');
@@ -8,11 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   faqItems.forEach((item) => {
     item.addEventListener('click', () => {
+      // Acordeon simple: abre/cierra la respuesta del item clickeado.
       item.classList.toggle('open');
     });
   });
 });
 
+// Valida campos basicos del formulario y muestra feedback visual.
 function enviarFormulario() {
   const nombreInput = document.getElementById('nombre');
   const apellidoInput = document.getElementById('apellido');
@@ -29,11 +32,13 @@ function enviarFormulario() {
   const email = emailInput.value.trim();
   const mensaje = mensajeInput.value.trim();
 
+  // Validacion minima antes de enviar (simulado en frontend).
   if (!nombre || !email || !mensaje) {
     alert('Por favor completa los campos requeridos: nombre, correo y mensaje.');
     return;
   }
 
+  // Confirmacion visible para el usuario.
   successMsg.style.display = 'block';
   nombreInput.value = '';
 
