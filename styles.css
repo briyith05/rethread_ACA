@@ -965,6 +965,8 @@ tr:nth-child(even) td {
   border-radius: 16px;
   padding: 2rem 1.5rem;
   text-align: center;
+  cursor: pointer;                         /* Indica que es interactivo */
+  transform-origin: center center;        /* Punto de transformación */
 }
 
 /* Avatar circular */
@@ -1004,28 +1006,21 @@ tr:nth-child(even) td {
   letter-spacing: 0.5px;
 }
 
-/* Efecto hover: pequeño zoom del avatar y elevación de la tarjeta */
-.team-card {
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
+/* Hover global: al pasar el cursor sobre la sección de equipo
+   hacemos un pequeño zoom del contenedor `.team-grid` para
+   destacar el bloque completo en vez de escalar cada imagen */
+.team-grid {
+  transition: transform 0.28s cubic-bezier(.2,.9,.3,1);
+  transform-origin: center center;
 }
 
-.team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(10,46,26,0.08);
-}
-
-.avatar img {
-  transition: transform 0.28s ease;
-}
-
-.team-card:hover .avatar img {
-  transform: scale(1.08);
+.team-grid:hover {
+  transform: scale(1.015);
 }
 
 /* Respetar preferencia de reducción de movimiento */
 @media (prefers-reduced-motion: reduce) {
-  .team-card,
-  .avatar img {
+  .team-grid {
     transition: none !important;
     transform: none !important;
   }
