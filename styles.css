@@ -1014,7 +1014,9 @@ tr:nth-child(even) td {
   transform-origin: center center;
 }
 
-.team-grid:hover {
+/* Activar zoom cuando JS añade la clase .hovering al grid
+   (esto evita que el zoom suceda al poner el cursor en el padding del grid) */
+.team-grid.hovering {
   transform: scale(1.015);
 }
 
