@@ -6,6 +6,16 @@ Un sitio web moderno y responsivo que presenta **ReThread**, una solución innov
 
 ReThread es una plataforma web que promociona y comercializa filamento reciclado de alta calidad. El sitio ofrece información sobre los productos, el proceso de reciclaje, la empresa y un formulario de contacto para consultas y pedidos.
 
+## 👀 Qué incluye al descargarlo
+
+Al abrir el proyecto vas a ver un sitio web completo de una sola marca con:
+
+- Inicio con hero principal animado y video de fondo
+- Secciones de Nosotros, Productos, Proceso y Contacto
+- Navegación superior fija en todas las páginas
+- Imágenes y videos locales dentro de las carpetas `images/` y `Videos/`
+- Servidor Express para abrir el sitio desde `http://localhost:3000`
+
 ## 🌿 Características
 
 - **Página de Inicio**: Presentación principal del proyecto y propuesta de valor
@@ -40,7 +50,7 @@ npm -v
 1. Clona el repositorio:
 ```bash
 git clone https://github.com/briyith05/rethread_ACA.git
-cd rethread_sitio_web
+cd rethread_ACA
 ```
 
 2. Instala las dependencias:
@@ -63,12 +73,16 @@ npm run dev
 
 El sitio estará disponible en `http://localhost:3000`
 
+## 🎬 Vista previa del sitio
+
+La página principal muestra un hero visual con el mensaje de marca, un video de fondo suave y accesos directos a las secciones principales. Las demás páginas reutilizan la misma navegación y estilo para mantener una experiencia consistente.
+
 ## 🔄 Comandos de GitHub (Rama master)
 
 Usa estos comandos desde la carpeta del proyecto:
 
 ```bash
-cd C:\xampp\htdocs\rethread\rethread_sitio_web
+cd C:\Users\Soporte.Tic\3D Objects\Fondo rojo\Pruebas\rethread_ACA
 ```
 
 ### 1) Subir cambios al repositorio en la rama master

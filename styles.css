@@ -1,81 +1,127 @@
+/* ========================================
+   RETHREAD - ESTILOS CSS PRINCIPAL
+   Filamento 3D Reciclado Colombiano
+   ATT:Brigtih Castro
+   ======================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap');
 
-/* Hoja global: variables, layout compartido y secciones por pagina. */
+/* ========================================
+   1. VARIABLES Y COLORES
+   Define todas las variables de color y fuentes reutilizables en todo el sitio
+   ======================================== */
 :root {
-  --verde-oscuro: #0a2e1a;
-  --verde-medio: #0f6e56;
-  --verde-vivo: #1d9e75;
-  --verde-claro: #9fe1cb;
-  --verde-menta: #e1f5ee;
-  --blanco-roto: #f5f2eb;
-  --gris-texto: #3d3d3a;
-  --gris-muted: #7a7a74;
-  --acento: #c8e86b;
+  /* Paleta de verdes: desde oscuro hasta claro */
+  --verde-oscuro: #0a2e1a;    /* Verde muy oscuro para fondos y textos principales */
+  --verde-medio: #0f6e56;     /* Verde medio para hover y estados */
+  --verde-vivo: #1d9e75;      /* Verde brillante para acentos */
+  --verde-claro: #9fe1cb;     /* Verde claro para texto y bordes */
+  --verde-menta: #e1f5ee;     /* Verde muy claro para fondos suave */
+  --blanco-roto: #f5f2eb;     /* Blanco cálido (no puro) para mejor lectura */
+  --gris-texto: #3d3d3a;      /* Gris oscuro para textos principales */
+  --gris-muted: #7a7a74;      /* Gris medio para textos secundarios */
+  --acento: #c8e86b;          /* Verde-amarillo para llamadas a acción */
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ========================================
+   2. RESET GLOBAL
+   Reinicia márgenes y relleno para evitar inconsistencias
+   ======================================== */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
 
+/* ========================================
+   3. ESTILOS DEL BODY
+   Fuente, fondo y altura mínima de la página
+   ======================================== */
 body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--blanco-roto);
-  color: var(--gris-texto);
-  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;     /* Fuente principal sin serifa */
+  background: var(--blanco-roto);         /* Fondo cálido */
+  color: var(--gris-texto);               /* Color de texto por defecto */
+  min-height: 100vh;                      /* Mínimo alto de pantalla */
 }
 
-/* ===== NAV ===== */
+
+/* ========================================
+   4. NAVEGACIÓN SUPERIOR
+   Barra fija en la parte superior con logo y menú
+   ======================================== */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 3rem;
-  background: rgba(10, 46, 26, 0.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(157, 225, 203, 0.15);
+  position: fixed;                        /* Se mantiene visible al hacer scroll */
+  top: 0; left: 0; right: 0;              /* Ocupa todo el ancho en la parte superior */
+  z-index: 100;                           /* Por encima de todos los elementos */
+  display: flex;                          /* Diseño flexible para logo y menú */
+  align-items: center;                    /* Centra verticalmente */
+  justify-content: space-between;         /* Separa logo del menú */
+  padding: 1rem 3rem;                     /* Espaciado interno */
+  background: rgba(10, 46, 26, 0.96);     /* Verde oscuro semi-transparente */
+  backdrop-filter: blur(12px);            /* Efecto de cristal/blur en fondo */
+  border-bottom: 1px solid rgba(157, 225, 203, 0.15);  /* Borde sutil verde */
 }
 
+/* Logo ReThread - Nombre de la marca */
 .nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: var(--blanco-roto);
+  font-family: 'Playfair Display', serif; /* Fuente serif elegante */
+  font-size: 1.6rem;                      /* Tamaño destacado */
+  font-weight: 900;                       /* Muy grueso/bold */
+  color: var(--blanco-roto);              /* Texto blanco */
   text-decoration: none;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.5px;                 /* Espaciado negativo para mejor compacidad */
 }
 
-.nav-logo span { color: var(--verde-claro); }
+/* Parte "Thread" del logo en color verde claro */
+.nav-logo span { 
+  color: var(--verde-claro); 
+}
 
+/* Menú de navegación - Lista de enlaces */
 nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2.5rem;
+  list-style: none;                       /* Sin puntos de lista */
+  display: flex;                          /* Items en fila horizontal */
+  gap: 2.5rem;                            /* Espacio entre items */
 }
 
+/* Enlaces del menú */
 nav ul a {
-  color: rgba(245,242,235,0.7);
+  color: rgba(245,242,235,0.7);           /* Blanco semi-transparente */
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 500;                       /* Semi-bold */
   letter-spacing: 0.5px;
-  transition: color 0.3s;
+  transition: color 0.3s;                 /* Transición suave al hover */
+  display: inline-block;                  /* Permite mover el enlace al hacer clic */
+  -webkit-tap-highlight-color: transparent;
 }
 
+/* Efecto hover en enlaces - Cambia color */
 nav ul a:hover, nav ul a.active {
-  color: var(--verde-claro);
+  color: var(--verde-claro);              /* Cambiar a verde claro en hover o si es activo */
 }
 
-/* ===== HERO GENERAL ===== */
+/* Efecto de clic: pequeño saltico al presionar */
+nav ul a:active,
+.btn:active {
+  animation: tapJump 0.22s ease;
+}
+
+
+/* ========================================
+   5. HERO DE PÁGINAS INTERNAS
+   Encabezado grande en páginas como Nosotros, Productos, etc.
+   ======================================== */
 .page-hero {
-  margin-top: 72px;
-  background: var(--verde-oscuro);
-  padding: 6rem 3rem 4rem;
-  text-align: center;
+  margin-top: 72px;                       /* Espacio por la navbar fija */
+  background: var(--verde-oscuro);        /* Fondo verde oscuro */
+  padding: 6rem 3rem 4rem;                /* Espaciado generoso */
+  text-align: center;                     /* Contenido centrado */
   position: relative;
-  overflow: hidden;
+  overflow: hidden;                       /* Oculta elementos que sobresalgan */
 }
 
+/* Decoración de gradiente radial de fondo */
 .page-hero::before {
   content: '';
   position: absolute;
@@ -83,27 +129,30 @@ nav ul a:hover, nav ul a.active {
   left: -20%;
   width: 140%;
   height: 200%;
-  background: radial-gradient(ellipse at 60% 50%, rgba(29,158,117,0.18) 0%, transparent 65%);
-  pointer-events: none;
+  background: radial-gradient(ellipse at 60% 50%, rgba(29,158,117,0.18) 0%, transparent 65%);  /* Gradiente verde */
+  pointer-events: none;                   /* No afecta interacciones */
 }
 
+/* Título principal de la página */
 .page-hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive: entre 2.5rem y 4.5rem */
   font-weight: 900;
   color: var(--blanco-roto);
   line-height: 1.05;
   margin-bottom: 1.2rem;
-  position: relative;
+  position: relative;                     /* Encima del fondo decorativo */
 }
 
+/* Énfasis dentro del h1 */
 .page-hero h1 em {
   font-style: normal;
-  color: var(--verde-claro);
+  color: var(--verde-claro);              /* Color destacado */
 }
 
+/* Párrafo descriptivo bajo el título */
 .page-hero p {
-  color: rgba(245,242,235,0.65);
+  color: rgba(245,242,235,0.65);          /* Blanco semi-transparente */
   font-size: 1.1rem;
   max-width: 560px;
   margin: 0 auto;
@@ -111,75 +160,91 @@ nav ul a:hover, nav ul a.active {
   position: relative;
 }
 
-/* ===== SECCIONES ===== */
+
+/* ========================================
+   6. SECCIONES GENERALES
+   Contenedores para agrupar contenido en la página
+   ======================================== */
 section {
-  padding: 5rem 3rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 5rem 3rem;                     /* Espaciado generoso */
+  max-width: 1100px;                      /* Ancho máximo para mejor legibilidad */
+  margin: 0 auto;                         /* Centrado */
 }
 
+/* Variante de sección con fondo oscuro */
 section.dark {
-  background: var(--verde-oscuro);
-  max-width: 100%;
-  color: var(--blanco-roto);
+  background: var(--verde-oscuro);        /* Fondo verde oscuro */
+  max-width: 100%;                        /* Ancho completo */
+  color: var(--blanco-roto);              /* Texto blanco */
 }
 
+/* Contenedor interno para secciones oscuras */
 section.dark > .inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 5rem 3rem;
 }
 
+/* Etiqueta pequeña que precede a títulos (ej: "¿Por qué ReThread?") */
 .section-label {
-  font-size: 0.75rem;
+  font-size: 0.75rem;                     /* Muy pequeño */
   font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--verde-vivo);
+  letter-spacing: 3px;                    /* Espaciado amplio entre letras */
+  text-transform: uppercase;              /* Todo en mayúsculas */
+  color: var(--verde-vivo);               /* Verde brillante */
   margin-bottom: 0.8rem;
 }
 
+/* Título principal de sección */
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3rem);      /* Responsive */
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 1.5rem;
 }
 
-/* ===== CARDS ===== */
+
+/* ========================================
+   7. TARJETAS (CARDS)
+   Contenedores rectangulares para mostrar información en grid
+   ======================================== */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* Responsive automático */
   gap: 1.5rem;
   margin-top: 3rem;
 }
 
+/* Tarjeta individual */
 .card {
   background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  border: 1px solid rgba(29,158,117,0.12);
-  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 16px;                    /* Esquinas redondeadas suaves */
+  padding: 2rem;                          /* Espaciado interno */
+  border: 1px solid rgba(29,158,117,0.12);  /* Borde verde sutil */
+  transition: transform 0.3s, box-shadow 0.3s;  /* Efecto suave en hover */
 }
 
+/* Efecto hover: levanta la tarjeta */
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(10,46,26,0.12);
+  transform: translateY(-6px);            /* Sube 6px */
+  box-shadow: 0 20px 40px rgba(10,46,26,0.12);  /* Sombra más grande */
 }
 
+/* Icono pequeño en la tarjeta */
 .card-icon {
   width: 52px;
   height: 52px;
   border-radius: 12px;
-  background: var(--verde-menta);
+  background: var(--verde-menta);         /* Fondo verde claro */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.5rem;                      /* Emoji o símbolo */
   margin-bottom: 1.2rem;
 }
 
+/* Título de la tarjeta */
 .card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
@@ -188,53 +253,85 @@ section.dark > .inner {
   color: var(--verde-oscuro);
 }
 
+/* Texto descriptivo de la tarjeta */
 .card p {
   font-size: 0.92rem;
-  line-height: 1.65;
+  line-height: 1.65;                      /* Mejor legibilidad */
   color: var(--gris-muted);
 }
 
-/* ===== BTN ===== */
+
+/* ========================================
+   8. BOTONES
+   Elementos clickeables con dos variantes: primary y outline
+   ======================================== */
 .btn {
   display: inline-block;
-  padding: 0.85rem 2rem;
-  border-radius: 50px;
+  padding: 0.85rem 2rem;                  /* Espaciado interno */
+  border-radius: 50px;                    /* Forma de píldora */
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-size: 0.95rem;
   text-decoration: none;
   cursor: pointer;
   border: none;
-  transition: all 0.3s;
+  transition: all 0.3s;                   /* Transición suave */
   letter-spacing: 0.3px;
+  -webkit-tap-highlight-color: transparent;
 }
 
+/* Botón principal (relleno verde) */
 .btn-primary {
-  background: var(--verde-vivo);
+  background: var(--verde-vivo);          /* Verde brillante */
   color: white;
 }
 
+/* Efecto hover del botón principal */
 .btn-primary:hover {
-  background: var(--verde-medio);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(29,158,117,0.35);
+  background: var(--verde-medio);         /* Verde más oscuro */
+  transform: translateY(-2px);            /* Levanta un poco */
+  box-shadow: 0 10px 25px rgba(29,158,117,0.35);  /* Sombra verde */
 }
 
+/* Botón secundario (borde solamente) */
 .btn-outline {
   background: transparent;
   color: var(--verde-claro);
   border: 1.5px solid var(--verde-claro);
 }
 
+/* Efecto hover del botón outline */
 .btn-outline:hover {
-  background: var(--verde-claro);
+  background: var(--verde-claro);         /* Se rellena en hover */
   color: var(--verde-oscuro);
 }
 
-/* ===== BADGE ===== */
+/* Botón blanco para usar sobre fondos oscuros */
+.btn-white {
+  background: white;
+  color: var(--verde-oscuro);
+  font-weight: 700;
+}
+
+.btn-white:hover {
+  background: var(--blanco-roto);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+@keyframes tapJump {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-4px) scale(0.98); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* ========================================
+   9. INSIGNIAS
+   Etiquetas pequeñas para destacar información
+   ======================================== */
 .badge {
   display: inline-block;
-  background: var(--acento);
+  background: var(--acento);              /* Fondo amarillo-verde */
   color: var(--verde-oscuro);
   font-size: 0.72rem;
   font-weight: 500;
@@ -242,25 +339,31 @@ section.dark > .inner {
   text-transform: uppercase;
   padding: 0.3rem 0.8rem;
   border-radius: 50px;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
-/* ===== FOOTER ===== */
+
+/* ========================================
+   10. PIE DE PÁGINA (FOOTER)
+   Información y enlaces en la parte inferior del sitio
+   ======================================== */
 footer {
   background: var(--verde-oscuro);
-  color: rgba(245,242,235,0.5);
+  color: rgba(245,242,235,0.5);           /* Texto semi-transparente */
   text-align: center;
   padding: 2.5rem 3rem;
   font-size: 0.85rem;
   border-top: 1px solid rgba(157,225,203,0.1);
 }
 
+/* Enlaces en el footer */
 footer a {
   color: var(--verde-claro);
   text-decoration: none;
 }
 
-footer .footer-logo {
+/* Logo del footer */
+.footer-logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
   font-weight: 900;
@@ -269,9 +372,14 @@ footer .footer-logo {
   margin-bottom: 0.5rem;
 }
 
-footer .footer-logo span { color: var(--verde-claro); }
+.footer-logo span { 
+  color: var(--verde-claro); 
+}
 
-/* ===== TABLA ===== */
+/* ========================================
+   11. TABLAS
+   Para comparaciones de productos o datos
+   ======================================== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -282,6 +390,7 @@ table {
   box-shadow: 0 4px 20px rgba(10,46,26,0.08);
 }
 
+/* Encabezado de tabla */
 th {
   background: var(--verde-oscuro);
   color: var(--verde-claro);
@@ -293,6 +402,7 @@ th {
   text-align: left;
 }
 
+/* Celdas de tabla */
 td {
   padding: 0.9rem 1.5rem;
   font-size: 0.92rem;
@@ -300,14 +410,26 @@ td {
   border-bottom: 1px solid var(--verde-menta);
 }
 
-tr:last-child td { border-bottom: none; }
-tr:nth-child(even) td { background: var(--verde-menta); }
+/* Última fila sin borde inferior */
+tr:last-child td { 
+  border-bottom: none; 
+}
 
-/* ===== FORM ===== */
+/* Filas alternas con fondo diferente */
+tr:nth-child(even) td { 
+  background: var(--verde-menta); 
+}
+
+
+/* ========================================
+   12. FORMULARIOS
+   Campos de entrada, texto, select y sus estados
+   ======================================== */
 .form-group {
   margin-bottom: 1.5rem;
 }
 
+/* Etiqueta de campo */
 .form-group label {
   display: block;
   font-size: 0.85rem;
@@ -317,12 +439,13 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   letter-spacing: 0.3px;
 }
 
+/* Campos de entrada (input, textarea, select) */
 .form-group input,
 .form-group textarea,
 .form-group select {
   width: 100%;
   padding: 0.85rem 1.1rem;
-  border: 1.5px solid rgba(29,158,117,0.25);
+  border: 1.5px solid rgba(29,158,117,0.25);  /* Borde verde sutil */
   border-radius: 10px;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
@@ -332,16 +455,24 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   outline: none;
 }
 
+/* Efecto cuando el campo tiene foco */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: var(--verde-vivo);
-  box-shadow: 0 0 0 4px rgba(29,158,117,0.12);
+  border-color: var(--verde-vivo);        /* Borde verde brillante */
+  box-shadow: 0 0 0 4px rgba(29,158,117,0.12);  /* Sombra verde */
 }
 
-.form-group textarea { resize: vertical; min-height: 130px; }
+/* Área de texto más grande */
+.form-group textarea { 
+  resize: vertical; 
+  min-height: 130px; 
+}
 
-/* ===== PROCESO PASOS ===== */
+/* ========================================
+   13. BLOQUES DE PASOS
+   Mostrar un proceso o secuencia en forma de grid
+   ======================================== */
 .steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -350,16 +481,18 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   position: relative;
 }
 
+/* Paso individual */
 .step {
   text-align: center;
   padding: 2rem 1rem;
   position: relative;
 }
 
+/* Número del paso en círculo */
 .steps .step-num {
   width: 56px;
   height: 56px;
-  border-radius: 50%;
+  border-radius: 50%;                     /* Forma circular */
   background: var(--verde-oscuro);
   color: var(--verde-claro);
   font-family: 'Playfair Display', serif;
@@ -372,6 +505,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   border: 2px solid var(--verde-vivo);
 }
 
+/* Título del paso */
 .step h4 {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
@@ -380,46 +514,75 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 0.5rem;
 }
 
+/* Descripción del paso */
 .step p {
   font-size: 0.85rem;
   color: var(--gris-muted);
   line-height: 1.55;
 }
 
-/* ===== ANIMACIONES ===== */
+
+/* ========================================
+   14. ANIMACIONES
+   Efectos de movimiento y transiciones visuales
+   ======================================== */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0;                           /* Invisible al inicio */
+    transform: translateY(24px);          /* Más abajo 24px */
+  }
+  to   { 
+    opacity: 1;                           /* Visible al final */
+    transform: translateY(0);             /* En posición normal */
+  }
 }
 
+/* Aplicar animación fadeUp */
 .fade-up {
-  animation: fadeUp 0.7s ease both;
+  animation: fadeUp 0.7s ease both;       /* 0.7 segundos, suave */
 }
 
+/* Retrasos para crear efecto escalonado */
 .delay-1 { animation-delay: 0.1s; }
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
 
-/* ===== UTILIDADES ===== */
+/* Animación de rotación (usado en iconos) */
+@keyframes spin {
+  to { 
+    transform: rotate(360deg);            /* Girar completo */
+  }
+}
+
+/* ========================================
+   15. UTILIDADES
+   Clases pequeñas para ajustes rápidos de diseño
+   ======================================== */
 .text-verde-claro { color: var(--verde-claro); }
 .text-blanco-roto { color: var(--blanco-roto); }
 .mt-05 { margin-top: 0.5rem; }
 .w-100 { width: 100%; }
 
-/* ===== HOME ===== */
+
+/* ========================================
+   16. HERO PRINCIPAL (PORTADA)
+   Sección grande con video de fondo, texto y logo animado
+   ======================================== */
 .hero-main {
-  margin-top: 72px;
-  min-height: calc(100vh - 72px);
-  background: var(--verde-oscuro);
+  margin-top: 72px;                       /* Espacio por la navbar fija */
+  min-height: calc(100vh - 72px);         /* Alto de pantalla completa */
+  background: var(--verde-oscuro);        /* Fondo verde oscuro */
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 0 3rem;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr;         /* Dos columnas: texto y visual */
+  align-items: center;                    /* Centra verticalmente */
+  padding: 0 3rem;                        /* Espaciado horizontal */
+  gap: 4rem;                              /* Espacio entre columnas */
   position: relative;
-  overflow: hidden;
+  overflow: hidden;                       /* Oculta elementos que sobresalgan */
 }
 
+/* Decoración de fondo: gradiente radial */
 .hero-main::before {
   content: '';
   position: absolute;
@@ -428,9 +591,11 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   width: 70%;
   height: 140%;
   background: radial-gradient(ellipse at center, rgba(29,158,117,0.22) 0%, transparent 70%);
-  pointer-events: none;
+  pointer-events: none;                   /* No interfiere con clics */
+  z-index: 1;                             /* Por encima del video */
 }
 
+/* Línea decorativa en la parte inferior */
 .hero-main::after {
   content: '';
   position: absolute;
@@ -441,45 +606,71 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   background: linear-gradient(90deg, transparent, rgba(157,225,203,0.3), transparent);
 }
 
-.hero-text { position: relative; z-index: 2; }
+/* VIDEO DE FONDO - NUEVO: Reproduce video intro con opacidad */
+.hero-video {
+  position: absolute;                     /* Cubre todo el fondo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                      /* Mantiene aspecto sin deformar */
+  opacity: 0.2;                           /* 20% de opacidad (muy transparente) */
+  z-index: 1;                             /* Bajo el contenido */
+}
 
+/* Texto del hero */
+.hero-text { 
+  position: relative; 
+  z-index: 2;                             /* Por encima del video y decoración */
+}
+
+/* Etiqueta pequeña sobre el título */
 .hero-text .eyebrow {
   display: inline-block;
-  background: var(--acento);
+  background: var(--acento);              /* Fondo amarillo-verde */
   color: var(--verde-oscuro);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 0.35rem 1rem;
-  border-radius: 50px;
-  margin-bottom: 1.8rem;
+  border-radius: 50px;                    /* Forma de píldora */
+  margin-bottom: 0;
 }
 
+/* Título principal */
 .hero-text h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 900;
+  font-size: clamp(3rem, 6vw, 5rem);      /* Responsive entre 3rem y 5rem */
+  font-weight: 900;                       /* Muy bold */
   color: var(--blanco-roto);
-  line-height: 1.03;
+  line-height: 1.03;                      /* Compacto */
   margin-bottom: 1.5rem;
 }
 
+/* Parte destacada del título (en otra línea) */
 .hero-text h1 .highlight {
-  color: var(--verde-claro);
-  display: block;
+  color: var(--verde-claro);              /* Color diferente */
+  display: block;                         /* Fuerza salto de línea */
 }
 
+/* Párrafo descriptivo */
 .hero-text p {
-  color: rgba(245,242,235,0.65);
+  color: rgba(245,242,235,0.65);          /* Blanco semi-transparente */
   font-size: 1.1rem;
-  line-height: 1.75;
-  max-width: 440px;
+  line-height: 1.75;                      /* Muy legible */
+  max-width: 440px;                       /* Ancho máximo */
   margin-bottom: 2.5rem;
 }
 
-.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+/* Contenedor de botones */
+.hero-btns { 
+  display: flex;                          /* Horizontal */
+  gap: 1rem;                              /* Espacio entre botones */
+  flex-wrap: wrap;                        /* Responsivo: ajusta en móvil */
+}
 
+/* Elemento visual derecho: animación del carrete */
 .hero-visual {
   position: relative;
   z-index: 2;
@@ -488,52 +679,59 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   justify-content: center;
 }
 
+/* Contenedor del carrete animado */
 .spool-wrap {
   position: relative;
   width: 300px;
   height: 300px;
 }
 
+/* Anillos del carrete (círculos concéntricos) */
 .spool-ring {
   position: absolute;
-  border-radius: 50%;
+  border-radius: 50%;                     /* Circular */
   border: 3px solid var(--verde-vivo);
-  animation: spin 20s linear infinite;
+  animation: spin 20s linear infinite;    /* Rotación continua */
 }
 
+/* Primer anillo: más grande, más transparente, gira al revés */
 .spool-ring:nth-child(1) {
-  inset: 0;
-  opacity: 0.4;
-  border-style: dashed;
-  animation-direction: reverse;
+  inset: 0;                               /* Toca todos los lados */
+  opacity: 0.4;                           /* Semi-transparente */
+  border-style: dashed;                   /* Línea punteada */
+  animation-direction: reverse;           /* Gira en dirección opuesta */
 }
 
+/* Segundo anillo: medio, verde claro */
 .spool-ring:nth-child(2) {
-  inset: 20px;
+  inset: 20px;                            /* 20px de margen interno */
   opacity: 0.7;
   border-color: var(--verde-claro);
 }
 
+/* Tercer anillo: más pequeño, color acento, más lento */
 .spool-ring:nth-child(3) {
   inset: 50px;
   border-color: var(--acento);
   opacity: 0.5;
-  animation-duration: 12s;
+  animation-duration: 12s;                /* Más lento que el primero */
 }
 
+/* Centro del carrete: círculo con logo y texto */
 .spool-center {
   position: absolute;
-  inset: 80px;
-  background: rgba(29,158,117,0.1);
+  inset: 80px;                            /* 80px de margen interno */
+  background: rgba(29,158,117,0.1);       /* Verde muy transparente */
   border-radius: 50%;
   border: 2px solid var(--verde-vivo);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: column;                 /* Vertical */
+  gap: 4px;                               /* Espacio entre elementos */
 }
 
+/* Textos dentro del centro */
 .spool-center span {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
@@ -542,6 +740,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   line-height: 1;
 }
 
+/* Pequeño texto en el centro */
 .spool-center small {
   font-size: 0.65rem;
   color: var(--verde-claro);
@@ -549,12 +748,13 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   text-transform: uppercase;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
 
+/* ========================================
+   17. STRIP DE CARACTERÍSTICAS
+   Fila con estadísticas/características principales
+   ======================================== */
 .features-strip {
-  background: white;
+  background: white;                      /* Fondo claro */
   padding: 4rem 3rem;
 }
 
@@ -563,6 +763,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin: 0 auto;
 }
 
+/* Pregunta/título de características */
 .features-inner > p {
   text-align: center;
   color: var(--gris-muted);
@@ -572,8 +773,46 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 3rem;
 }
 
+/* Grid de estadísticas */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* Tarjeta individual de estadística */
+.stat {
+  background: rgba(29,158,117,0.08);      /* Fondo verde muy claro */
+  border: 1px solid rgba(157,225,203,0.3);
+  border-radius: 16px;
+  padding: 1.8rem 1.2rem;
+  text-align: center;
+}
+
+/* Número grande de la estadística */
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--verde-vivo);               /* Verde brillante */
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+/* Descripción de la estadística */
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--gris-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   18. BANNER CON LLAMADA A ACCIÓN
+   Fondo destacado para promover algo
+   ======================================== */
 .cta-banner {
-  background: var(--verde-vivo);
+  background: var(--verde-vivo);          /* Verde brillante */
   padding: 4rem 3rem;
   text-align: center;
 }
@@ -592,22 +831,14 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   font-size: 1rem;
 }
 
-.btn-white {
-  background: white;
-  color: var(--verde-oscuro);
-  font-weight: 700;
-}
 
-.btn-white:hover {
-  background: var(--blanco-roto);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* ===== NOSOTROS ===== */
+/* ========================================
+   19. SECCIÓN NOSOTROS / ABOUT
+   Historia, valores, misión, equipo
+   ======================================== */
 .about-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;         /* Dos columnas: texto e imagen */
   gap: 5rem;
   align-items: center;
   max-width: 1100px;
@@ -615,6 +846,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   padding: 5rem 3rem;
 }
 
+/* Párrafos en la sección about */
 .about-text p {
   font-size: 1rem;
   line-height: 1.8;
@@ -622,21 +854,24 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 1.2rem;
 }
 
+/* Área visual (lado derecho) */
 .about-visual {
   background: var(--verde-oscuro);
   border-radius: 24px;
   padding: 3rem 2.5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;                 /* Vertical */
   gap: 1.5rem;
 }
 
+/* Elemento de valor: icono + texto */
 .value-item {
   display: flex;
   gap: 1.2rem;
   align-items: flex-start;
 }
 
+/* Icono de valor */
 .value-icon {
   width: 44px;
   height: 44px;
@@ -657,6 +892,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   border-radius: 50%;
 }
 
+/* Título de valor */
 .value-item h4 {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
@@ -665,22 +901,25 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 0.3rem;
 }
 
+/* Descripción de valor */
 .value-item p {
   font-size: 0.85rem;
   color: rgba(245,242,235,0.6);
   line-height: 1.55;
 }
 
+/* Caja destacada para Misión/Visión */
 .mission-box {
-  background: var(--verde-menta);
-  border-left: 4px solid var(--verde-vivo);
-  border-radius: 0 16px 16px 0;
+  background: var(--verde-menta);         /* Fondo claro */
+  border-left: 4px solid var(--verde-vivo);  /* Borde coloreado a la izquierda */
+  border-radius: 0 16px 16px 0;           /* Esquinas redondeadas a la derecha */
   padding: 2rem 2.5rem;
   margin: 2rem 0;
 }
 
+/* Variante acentuada de caja de misión */
 .mission-box-accent {
-  border-left-color: var(--acento);
+  border-left-color: var(--acento);       /* Borde amarillo-verde */
 }
 
 .mission-box h3 {
@@ -697,6 +936,10 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   line-height: 1.7;
 }
 
+/* ========================================
+   20. SECCIÓN EQUIPO
+   Tarjetas de miembros del equipo
+   ======================================== */
 .team-section {
   background: var(--verde-oscuro);
   padding: 5rem 3rem;
@@ -707,6 +950,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin: 0 auto;
 }
 
+/* Grid de tarjetas de equipo */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -714,14 +958,16 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-top: 3rem;
 }
 
+/* Tarjeta de miembro del equipo */
 .team-card {
-  background: rgba(29,158,117,0.08);
+  background: rgba(29,158,117,0.08);      /* Verde muy transparente */
   border: 1px solid rgba(157,225,203,0.2);
   border-radius: 16px;
   padding: 2rem 1.5rem;
   text-align: center;
 }
 
+/* Avatar circular */
 .avatar {
   width: 72px;
   height: 72px;
@@ -730,14 +976,19 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: white;
   margin: 0 auto 1rem;
   border: 2px solid var(--verde-claro);
+  overflow: hidden;
 }
 
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nombre del miembro */
 .team-card h4 {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
@@ -746,13 +997,18 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 0.3rem;
 }
 
+/* Cargo/posición */
 .team-card p {
   font-size: 0.8rem;
   color: var(--verde-claro);
   letter-spacing: 0.5px;
 }
 
-/* ===== PRODUCTOS ===== */
+
+/* ========================================
+   21. SECCIÓN PRODUCTOS
+   Grid de tarjetas de productos con imagen, descripción y precio
+   ======================================== */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -760,35 +1016,42 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-top: 3rem;
 }
 
+/* Tarjeta de producto */
 .product-card {
   background: white;
   border-radius: 20px;
-  overflow: hidden;
+  overflow: hidden;                       /* Recorta esquinas de la imagen */
   border: 1px solid rgba(29,158,117,0.12);
   transition: transform 0.35s, box-shadow 0.35s;
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px);            /* Levanta más que las tarjetas normales */
   box-shadow: 0 24px 48px rgba(10,46,26,0.14);
 }
 
+/* Área de imagen del producto */
 .product-img {
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 5rem;
+  font-size: 5rem;                        /* Emoji grande */
   position: relative;
   overflow: hidden;
 }
 
+/* Variantes de colores de fondo */
 .product-img.verde { background: linear-gradient(135deg, #0a2e1a 0%, #0f6e56 100%); }
 .product-img.menta { background: linear-gradient(135deg, #e1f5ee 0%, #9fe1cb 100%); }
 .product-img.acento { background: linear-gradient(135deg, #1d3a10 0%, #639922 100%); }
 
-.product-body { padding: 1.8rem; }
+/* Cuerpo del producto: texto e info */
+.product-body { 
+  padding: 1.8rem; 
+}
 
+/* Etiqueta de producto (ej: "Bestseller") */
 .product-tag {
   display: inline-block;
   font-size: 0.7rem;
@@ -802,6 +1065,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 0.8rem;
 }
 
+/* Título del producto */
 .product-body h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.35rem;
@@ -810,6 +1074,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 0.5rem;
 }
 
+/* Descripción del producto */
 .product-body p {
   font-size: 0.9rem;
   color: var(--gris-muted);
@@ -817,6 +1082,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 1.2rem;
 }
 
+/* Especificaciones del producto (Pills pequeños) */
 .product-specs {
   display: flex;
   flex-wrap: wrap;
@@ -833,6 +1099,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   color: var(--gris-texto);
 }
 
+/* Pie del producto: precio y botón */
 .product-footer {
   display: flex;
   align-items: center;
@@ -841,6 +1108,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   border-top: 1px solid var(--verde-menta);
 }
 
+/* Precio */
 .price {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
@@ -857,6 +1125,10 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   line-height: 1;
 }
 
+/* ========================================
+   22. SECCIÓN COMPARACIÓN
+   Tabla para comparar productos
+   ======================================== */
 .compare-section {
   background: var(--verde-oscuro);
   padding: 5rem 3rem;
@@ -867,31 +1139,55 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin: 0 auto;
 }
 
-.compare-section th { background: rgba(157,225,203,0.12); color: var(--verde-claro); }
-.compare-section td { color: rgba(245,242,235,0.8); border-bottom-color: rgba(157,225,203,0.1); }
-.compare-section tr:nth-child(even) td { background: rgba(29,158,117,0.06); }
-.compare-section table { background: rgba(255,255,255,0.03); border: 1px solid rgba(157,225,203,0.1); }
+/* Estilos especiales para tabla de comparación */
+.compare-section th { 
+  background: rgba(157,225,203,0.12);     /* Verde muy transparente */
+  color: var(--verde-claro); 
+}
+.compare-section td { 
+  color: rgba(245,242,235,0.8);           /* Blanco semi-transparente */
+  border-bottom-color: rgba(157,225,203,0.1); 
+}
+.compare-section tr:nth-child(even) td { 
+  background: rgba(29,158,117,0.06);      /* Verde muy transparente alternado */
+}
+.compare-section table { 
+  background: rgba(255,255,255,0.03);     /* Casi transparente */
+  border: 1px solid rgba(157,225,203,0.1); 
+}
 
-.check { color: var(--verde-claro); font-weight: 700; }
-.cross { color: #e24b4a; }
+/* Símbolos de comparación */
+.check { 
+  color: var(--verde-claro);              /* Verde para "sí" */
+  font-weight: 700; 
+}
+.cross { 
+  color: #e24b4a;                         /* Rojo para "no" */
+}
 
-/* ===== PROCESO ===== */
+
+/* ========================================
+   23. SECCIÓN PROCESO
+   Línea de tiempo con pasos del proceso de fabricación
+   ======================================== */
 .process-timeline {
   position: relative;
   max-width: 800px;
   margin: 4rem auto 0;
 }
 
+/* Línea vertical conectando los pasos */
 .process-timeline::before {
   content: '';
   position: absolute;
-  left: 40px;
+  left: 40px;                             /* Alineada con los puntos */
   top: 0;
   bottom: 0;
-  width: 2px;
+  width: 2px;                             /* Grosor de línea */
   background: linear-gradient(to bottom, var(--verde-vivo), var(--acento));
 }
 
+/* Paso individual de la línea de tiempo */
 .timeline-step {
   display: flex;
   gap: 2.5rem;
@@ -900,12 +1196,14 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   animation: fadeUp 0.6s ease both;
 }
 
+/* Retrasos escalonados para efecto cascada */
 .timeline-step:nth-child(1) { animation-delay: 0.1s; }
 .timeline-step:nth-child(2) { animation-delay: 0.2s; }
 .timeline-step:nth-child(3) { animation-delay: 0.3s; }
 .timeline-step:nth-child(4) { animation-delay: 0.4s; }
 .timeline-step:nth-child(5) { animation-delay: 0.5s; }
 
+/* Punto circular en la línea de tiempo */
 .step-dot {
   width: 80px;
   min-width: 80px;
@@ -916,22 +1214,24 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 2rem;                        /* Emoji grande */
   position: relative;
   z-index: 2;
   transition: transform 0.3s;
 }
 
+/* Efecto hover en el punto */
 .timeline-step:hover .step-dot {
-  transform: scale(1.1);
-  border-color: var(--acento);
+  transform: scale(1.1);                  /* Agranda al hover */
+  border-color: var(--acento);            /* Cambia borde a amarillo */
 }
 
+/* Caja de contenido del paso */
 .step-content {
   background: white;
   border-radius: 16px;
   padding: 1.8rem 2rem;
-  flex: 1;
+  flex: 1;                                /* Ocupa espacio disponible */
   border: 1px solid rgba(29,158,117,0.12);
   transition: box-shadow 0.3s;
 }
@@ -940,6 +1240,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   box-shadow: 0 12px 32px rgba(10,46,26,0.1);
 }
 
+/* Número del paso */
 .step-num {
   font-size: 0.72rem;
   font-weight: 500;
@@ -949,6 +1250,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 0.4rem;
 }
 
+/* Título del paso */
 .step-content h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
@@ -957,12 +1259,14 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 0.6rem;
 }
 
+/* Descripción del paso */
 .step-content p {
   font-size: 0.92rem;
   color: var(--gris-muted);
   line-height: 1.7;
 }
 
+/* Detalles adicionales del paso */
 .step-detail {
   margin-top: 1rem;
   padding-top: 1rem;
@@ -981,6 +1285,10 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   border-radius: 50px;
 }
 
+/* ========================================
+   24. SECCIÓN INFOGRAFÍA DE IMPACTO
+   Números y estadísticas de impacto ambiental
+   ======================================== */
 .infographic {
   background: var(--verde-oscuro);
   padding: 5rem 3rem;
@@ -992,6 +1300,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin: 0 auto;
 }
 
+/* Grid de tarjetas de impacto */
 .impact-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -999,44 +1308,53 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-top: 3rem;
 }
 
+/* Tarjeta de impacto individual */
 .impact-card {
-  background: rgba(29,158,117,0.1);
+  background: rgba(29,158,117,0.1);       /* Verde muy transparente */
   border: 1px solid rgba(157,225,203,0.2);
   border-radius: 20px;
   padding: 2.5rem 1.5rem;
 }
 
+/* Icono de impacto */
 .impact-icon {
-  font-size: 2.5rem;
+  font-size: 2.5rem;                      /* Emoji grande */
   margin-bottom: 1rem;
   display: block;
 }
 
+/* Número de impacto */
 .impact-num {
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
   font-weight: 900;
-  color: var(--acento);
+  color: var(--acento);                   /* Amarillo-verde destacado */
   line-height: 1;
   margin-bottom: 0.5rem;
 }
 
+/* Descripción del impacto */
 .impact-desc {
   font-size: 0.88rem;
   color: rgba(245,242,235,0.65);
   line-height: 1.6;
 }
 
+/* Sección de materiales */
 .materials-section {
   padding: 5rem 3rem;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* ===== CONTACTO ===== */
+
+/* ========================================
+   25. SECCIÓN CONTACTO
+   Información de contacto, formulario y mensaje de éxito
+   ======================================== */
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1fr 1.4fr;       /* Información + Formulario */
   gap: 4rem;
   max-width: 1000px;
   margin: 0 auto;
@@ -1044,6 +1362,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   align-items: start;
 }
 
+/* Área de información de contacto */
 .contact-info h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
@@ -1059,6 +1378,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 2.5rem;
 }
 
+/* Elemento individual de contacto (email, teléfono, etc) */
 .contact-item {
   display: flex;
   gap: 1rem;
@@ -1066,6 +1386,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 1.5rem;
 }
 
+/* Icono del elemento de contacto */
 .contact-item-icon {
   width: 44px;
   height: 44px;
@@ -1078,6 +1399,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   font-size: 1.2rem;
 }
 
+/* Texto del elemento de contacto */
 .contact-item-text h4 {
   font-size: 0.8rem;
   font-weight: 500;
@@ -1093,6 +1415,7 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   line-height: 1.5;
 }
 
+/* Tarjeta del formulario */
 .contact-form-card {
   background: white;
   border-radius: 24px;
@@ -1115,14 +1438,16 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin-bottom: 2rem;
 }
 
+/* Fila de dos campos en el formulario */
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;         /* Dos columnas iguales */
   gap: 1rem;
 }
 
+/* Mensaje de éxito (oculto por defecto) */
 .success-msg {
-  display: none;
+  display: none;                          /* JavaScript lo muestra */
   background: var(--verde-menta);
   border: 1.5px solid var(--verde-vivo);
   border-radius: 12px;
@@ -1143,6 +1468,10 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   color: var(--verde-medio);
 }
 
+/* ========================================
+   26. SECCIÓN FAQ (PREGUNTAS FRECUENTES)
+   Acordeón de preguntas y respuestas expandibles
+   ======================================== */
 .faq-section {
   background: var(--verde-oscuro);
   padding: 5rem 3rem;
@@ -1153,12 +1482,14 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   margin: 0 auto;
 }
 
+/* Item individual de FAQ */
 .faq-item {
   border-bottom: 1px solid rgba(157,225,203,0.15);
   padding: 1.5rem 0;
-  cursor: pointer;
+  cursor: pointer;                        /* Indica que es clickeable */
 }
 
+/* Pregunta (siempre visible) */
 .faq-question {
   display: flex;
   justify-content: space-between;
@@ -1169,87 +1500,149 @@ tr:nth-child(even) td { background: var(--verde-menta); }
   color: var(--blanco-roto);
 }
 
+/* Icono expandible (+) */
 .faq-question span {
   color: var(--verde-claro);
   font-family: 'DM Sans', sans-serif;
   font-size: 1.2rem;
   font-weight: 300;
-  transition: transform 0.3s;
+  transition: transform 0.3s;             /* Rota cuando se expande */
 }
 
+/* Respuesta (oculta inicialmente) */
 .faq-answer {
   font-size: 0.9rem;
   color: rgba(245,242,235,0.65);
   line-height: 1.7;
-  max-height: 0;
+  max-height: 0;                          /* Oculto */
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s;
 }
 
+/* Cuando el item está abierto (.open agregado por JS) */
 .faq-item.open .faq-answer {
-  max-height: 200px;
+  max-height: 200px;                      /* Se expande */
   padding-top: 1rem;
 }
 
+/* Icono rota cuando está abierto */
 .faq-item.open .faq-question span {
-  transform: rotate(45deg);
+  transform: rotate(45deg);               /* Gira 45 grados */
 }
 
-/* ===== RESPONSIVE ===== */
+
+/* ========================================
+   27. DISEÑO RESPONSIVO - PANTALLAS PEQUEÑAS (Tablets y Móviles)
+   Ajustes para pantallas menores a 768px de ancho
+   ======================================== */
 @media (max-width: 768px) {
-  .hero-main { grid-template-columns: 1fr; padding: 3rem 1.5rem; min-height: auto; padding-top: 4rem; }
-  .hero-visual { display: none; }
-  .about-split { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; }
-  .team-section { padding: 3rem 1.5rem; }
-  .compare-section { padding: 3rem 1.5rem; }
-  .process-timeline::before { left: 28px; }
-  .step-dot { width: 56px; min-width: 56px; height: 56px; font-size: 1.3rem; }
-  .impact-grid { grid-template-columns: 1fr; }
-  .infographic { padding: 3rem 1.5rem; }
-  .materials-section { padding: 3rem 1.5rem; }
-  .contact-layout { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
-  .form-row { grid-template-columns: 1fr; }
-  .faq-section { padding: 3rem 1.5rem; }
-}
-.delay-4 { animation-delay: 0.4s; }
+  /* Navegación más compacta */
+  nav { 
+    padding: 1rem 1.5rem; 
+  }
+  nav ul { 
+    gap: 1.2rem;                          /* Menor espaciado entre items */
+  }
+  nav ul a { 
+    font-size: 0.8rem;                    /* Texto más pequeño */
+  }
 
-/* ===== STAT CARDS ===== */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3rem;
+  /* Página hero compacta */
+  .page-hero { 
+    padding: 4rem 1.5rem 3rem; 
+  }
+  
+  /* Secciones con menos padding */
+  section { 
+    padding: 3rem 1.5rem;                 /* Menos espaciado */
+  }
+  section.dark > .inner { 
+    padding: 3rem 1.5rem; 
+  }
+
+  /* Hero principal: una columna en móvil */
+  .hero-main { 
+    grid-template-columns: 1fr;           /* Una sola columna */
+    padding: 3rem 1.5rem; 
+    min-height: auto;                     /* Ajusta alto automáticamente */
+    padding-top: 4rem; 
+  }
+  
+  /* Oculta el visual (carrete) en móvil */
+  .hero-visual { 
+    display: none; 
+  }
+
+  /* Grid de about en una columna */
+  .about-split { 
+    grid-template-columns: 1fr;           /* Una columna */
+    gap: 2.5rem; 
+    padding: 3rem 1.5rem; 
+  }
+
+  /* Sección de equipo compacta */
+  .team-section { 
+    padding: 3rem 1.5rem; 
+  }
+
+  /* Comparación compacta */
+  .compare-section { 
+    padding: 3rem 1.5rem; 
+  }
+
+  /* Línea de tiempo: ajusta posición del punto */
+  .process-timeline::before { 
+    left: 28px;                           /* Más cerca del borde */
+  }
+  
+  /* Punto más pequeño */
+  .step-dot { 
+    width: 56px;                          /* Más pequeño */
+    min-width: 56px; 
+    height: 56px; 
+    font-size: 1.3rem;                    /* Emoji más pequeño */
+  }
+
+  /* Grid de impacto: una columna */
+  .impact-grid { 
+    grid-template-columns: 1fr;           /* Una columna */
+  }
+  
+  /* Infografía compacta */
+  .infographic { 
+    padding: 3rem 1.5rem; 
+  }
+  
+  /* Sección de materiales compacta */
+  .materials-section { 
+    padding: 3rem 1.5rem; 
+  }
+
+  /* Contacto: una columna */
+  .contact-layout { 
+    grid-template-columns: 1fr;           /* Una columna */
+    gap: 2rem; 
+    padding: 3rem 1.5rem; 
+  }
+  
+  /* Formulario: una columna para los campos */
+  .form-row { 
+    grid-template-columns: 1fr;           /* Un campo por línea */
+  }
+
+  /* FAQ compacta */
+  .faq-section { 
+    padding: 3rem 1.5rem; 
+  }
+
+  /* Delay 4 añadido (si no estaba antes) */
+  .delay-4 { 
+    animation-delay: 0.4s; 
+  }
 }
 
-.stat {
-  background: rgba(29,158,117,0.08);
-  border: 1px solid rgba(157,225,203,0.3);
-  border-radius: 16px;
-  padding: 1.8rem 1.2rem;
-  text-align: center;
-}
-
-.stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: var(--verde-vivo);
-  line-height: 1;
-  margin-bottom: 0.4rem;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--gris-muted);
-  letter-spacing: 0.5px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem; }
-  nav ul { gap: 1.2rem; }
-  nav ul a { font-size: 0.8rem; }
-  .page-hero { padding: 4rem 1.5rem 3rem; }
-  section { padding: 3rem 1.5rem; }
-  section.dark > .inner { padding: 3rem 1.5rem; }
-}
+/* ========================================
+   FIN DEL ARCHIVO CSS
+   Todos los estilos están organizados en secciones temáticas
+   para fácil mantenimiento y modificación.
+   ======================================== */
