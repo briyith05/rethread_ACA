@@ -1004,6 +1004,33 @@ tr:nth-child(even) td {
   letter-spacing: 0.5px;
 }
 
+/* Efecto hover: pequeño zoom del avatar y elevación de la tarjeta */
+.team-card {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(10,46,26,0.08);
+}
+
+.avatar img {
+  transition: transform 0.28s ease;
+}
+
+.team-card:hover .avatar img {
+  transform: scale(1.08);
+}
+
+/* Respetar preferencia de reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .avatar img {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
 
 /* ========================================
    21. SECCIÓN PRODUCTOS
