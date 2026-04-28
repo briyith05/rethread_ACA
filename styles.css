@@ -965,8 +965,6 @@ tr:nth-child(even) td {
   border-radius: 16px;
   padding: 2rem 1.5rem;
   text-align: center;
-  cursor: pointer;                         /* Indica que es interactivo */
-  transform-origin: center center;        /* Punto de transformación */
 }
 
 /* Avatar circular */
@@ -1004,28 +1002,6 @@ tr:nth-child(even) td {
   font-size: 0.8rem;
   color: var(--verde-claro);
   letter-spacing: 0.5px;
-}
-
-/* Hover global: al pasar el cursor sobre la sección de equipo
-   hacemos un pequeño zoom del contenedor `.team-grid` para
-   destacar el bloque completo en vez de escalar cada imagen */
-.team-grid {
-  transition: transform 0.28s cubic-bezier(.2,.9,.3,1);
-  transform-origin: center center;
-}
-
-/* Activar zoom cuando JS añade la clase .hovering al grid
-   (esto evita que el zoom suceda al poner el cursor en el padding del grid) */
-.team-grid.hovering {
-  transform: scale(1.015);
-}
-
-/* Respetar preferencia de reducción de movimiento */
-@media (prefers-reduced-motion: reduce) {
-  .team-grid {
-    transition: none !important;
-    transform: none !important;
-  }
 }
 
 
